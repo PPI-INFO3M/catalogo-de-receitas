@@ -1,0 +1,239 @@
+/*
+ * ============================================================
+ * GUIA DE VARIÁVEIS CSS (:root)
+ * Catálogo de Receitas — Landing Page
+ * ============================================================
+ *
+ * Este arquivo contém TODAS as variáveis usadas no design da landing page.
+ * Cada seção explica o que a variável controla e dá exemplos práticos.
+ *
+ * Como usar:
+ *   1. Copie este bloco inteiro para o :root do seu arquivo CSS principal.
+ *   2. Use as variáveis nos componentes: color: var(--primary);
+ *   3. Para mudar o tema, altere apenas os valores aqui — a interface toda
+ *      se atualiza automaticamente.
+ */
+
+:root {
+  /* ==========================================================
+   * 1. CORES SEMÂNTICAS
+   * ==========================================================
+   * Cada variável descreve um PAPEL, não uma cor específica.
+   * Isso evita que você precise caçar hexadecimais espalhados no código.
+   *
+   * Formato oklch(): oklch(luminosidade croma matiz / opacidade)
+   *   - luminosidade: 0 (preto) a 1 (branco)
+   *   - croma: 0 (cinza) a ~0.4 (muito vivo)
+   *   - matiz: ângulo da cor, 0 a 360
+   *   - opacidade: 0 (transparente) a 1 (opaco) — opcional
+   */
+
+  /* Fundo principal da página (cor de papel/canvas) */
+  --background: oklch(0.98 0.01 85);
+
+  /* Cor do texto principal (títulos, parágrafos, links) */
+  --foreground: oklch(0.20 0.02 45);
+
+  /* Fundo de cartões, modais e popovers */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.02 45);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.02 45);
+
+  /* Cor de destaque / ação primária (botões, links ativos, estrelas) */
+  --primary: oklch(0.55 0.13 45);
+
+  /* Cor do texto sobre elementos primários (geralmente branco) */
+  --primary-foreground: oklch(0.99 0.005 85);
+
+  /* Cor secundária: badges, tags, fundos sutis */
+  --secondary: oklch(0.96 0.02 85);
+  --secondary-foreground: oklch(0.25 0.02 45);
+
+  /* Cor "muted": legendas, descrições, metadados de receita */
+  --muted: oklch(0.50 0.02 50);
+  --muted-foreground: oklch(0.50 0.02 50);
+
+  /* Cor de acento / contraste (verde sálvia para receitas) */
+  --accent: oklch(0.55 0.06 150);
+  --accent-foreground: oklch(0.99 0.005 150);
+
+  /* Cor de erro / destrutivo */
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(0.99 0.005 25);
+
+  /* Linhas divisórias, bordas de inputs, contornos de foco */
+  --border: oklch(0.20 0.02 45 / 0.08);
+  --input: oklch(0.20 0.02 45 / 0.15);
+  --ring: oklch(0.55 0.13 45);
+
+  /* ==========================================================
+   * 2. TIPOGRAFIA
+   * ==========================================================
+   * As fontes são carregadas via Google Fonts no HTML.
+   * Aqui você só define os nomes para reutilizar no CSS.
+   */
+
+  /* Fonte de títulos e display (serifada, elegante) */
+  --font-display-name: "Playfair Display", Georgia, serif;
+
+  /* Fonte de corpo de texto (serifada, confortável de ler) */
+  --font-body-name: "Lora", Georgia, serif;
+
+  /* Fonte monoespaçada para labels, códigos e metadados */
+  --font-mono-name: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ==========================================================
+   * 3. ESPAÇAMENTO — MARGENS E PADDINGS
+   * ==========================================================
+   * A unidade base é 4px. Todos os espaços são múltiplos dela.
+   * Usar uma escala fixa deixa o layout com ritmo visual consistente.
+   *
+   * Tabela rápida:
+   *   --space-1  = 4px   → ícones muito juntos
+   *   --space-2  = 8px   → gap entre texto e ícone
+   *   --space-3  = 12px  → padding interno pequeno
+   *   --space-4  = 16px  → margem entre parágrafos
+   *   --space-6  = 24px  → padding dentro de um card
+   *   --space-8  = 32px  → margem entre seções pequenas
+   *   --space-10 = 40px  → margem entre seções médias
+   *   --space-12 = 48px  → padding vertical de seção
+   *   --space-16 = 64px  → padding vertical de hero
+   *   --space-20 = 80px  → padding vertical de hero grande
+   *   --space-24 = 96px  → separação entre blocos principais
+   */
+  --space-unit: 4px;
+  --space-1: calc(var(--space-unit) * 1);
+  --space-2: calc(var(--space-unit) * 2);
+  --space-3: calc(var(--space-unit) * 3);
+  --space-4: calc(var(--space-unit) * 4);
+  --space-5: calc(var(--space-unit) * 5);
+  --space-6: calc(var(--space-unit) * 6);
+  --space-8: calc(var(--space-unit) * 8);
+  --space-10: calc(var(--space-unit) * 10);
+  --space-12: calc(var(--space-unit) * 12);
+  --space-16: calc(var(--space-unit) * 16);
+  --space-20: calc(var(--space-unit) * 20);
+  --space-24: calc(var(--space-unit) * 24);
+
+  /* Padding horizontal do container principal (mobile) */
+  --container-padding: var(--space-6);
+
+  /* Paddings verticais de seções */
+  --section-padding-sm: var(--space-12); /* 48px  → seções comuns */
+  --section-padding-md: var(--space-16); /* 64px  → hero */
+  --section-padding-lg: var(--space-20); /* 80px  → hero grande */
+
+  /* ==========================================================
+   * 4. TAMANHOS DE TEXTO
+   * ==========================================================
+   * Escala tipográfica para manter hierarquia clara.
+   * Use --text-xs para labels e --text-5xl/6xl para o hero.
+   */
+  --text-xs: 0.75rem;    /* 12px → labels, tags, footer */
+  --text-sm: 0.875rem;   /* 14px → legendas, metadados */
+  --text-base: 1rem;     /* 16px → corpo */
+  --text-lg: 1.125rem;   /* 18px → subtítulo */
+  --text-xl: 1.25rem;    /* 20px → título de card */
+  --text-2xl: 1.5rem;    /* 24px → título de seção */
+  --text-3xl: 1.875rem;  /* 30px → hero menor */
+  --text-4xl: 2.25rem;   /* 36px → hero médio */
+  --text-5xl: 3rem;      /* 48px → hero grande */
+  --text-6xl: 3.75rem;   /* 60px → hero extra */
+
+  /* ==========================================================
+   * 5. RAIO DE BORDA (BORDER RADIUS)
+   * ==========================================================
+   * Mantém os cantos arredondados consistentes em toda a UI.
+   */
+  --radius: 0.625rem;    /* 10px → base */
+  --radius-sm: 0.25rem;  /* 4px  → tags, badges */
+  --radius-md: 0.375rem; /* 6px  → inputs pequenos */
+  --radius-lg: 0.625rem; /* 10px → cards */
+  --radius-xl: 1rem;     /* 16px → modais */
+  --radius-2xl: 1.25rem; /* 20px → cards grandes */
+  --radius-3xl: 1.5rem;  /* 24px → hero image */
+  --radius-full: 9999px; /* círculos / botões pílula */
+
+  /* ==========================================================
+   * 6. SOMBRAS
+   * ==========================================================
+   * Sombras sutis dão profundidade sem poluir o visual.
+   */
+  --shadow-sm: 0 1px 2px 0 oklch(0.20 0.02 45 / 0.05);
+  --shadow-md: 0 4px 6px -1px oklch(0.20 0.02 45 / 0.08),
+               0 2px 4px -2px oklch(0.20 0.02 45 / 0.04);
+  --shadow-lg: 0 10px 15px -3px oklch(0.20 0.02 45 / 0.08),
+               0 4px 6px -4px oklch(0.20 0.02 45 / 0.04);
+
+  /* ==========================================================
+   * 7. TRANSIÇÕES E ANIMAÇÕES
+   * ==========================================================
+   * Curva de easing suave para hovers e animações.
+   */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --transition-fast: 150ms var(--ease-out-expo);
+  --transition-base: 250ms var(--ease-out-expo);
+  --transition-slow: 500ms var(--ease-out-expo);
+
+  /* ==========================================================
+   * 8. LARGURAS MÁXIMAS DE CONTAINER
+   * ==========================================================
+   * --container-sm: textos estreitos (melhor legibilidade)
+   * --container-md: hero centralizado
+   * --container-lg: grid de cards
+   * --container-xl: navegação e rodapé
+   */
+  --container-sm: 40rem;  /* 640px */
+  --container-md: 56rem;  /* 896px */
+  --container-lg: 72rem;  /* 1152px */
+  --container-xl: 80rem;  /* 1280px */
+
+  /* ==========================================================
+   * 9. Z-INDEX
+   * ==========================================================
+   * Evita números mágicos espalhados no código.
+   */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;   /* navegação fixa */
+  --z-modal: 300;
+  --z-popover: 400;
+  --z-toast: 500;
+}
+
+/*
+ * ==========================================================
+ * EXEMPLOS DE USO NOS COMPONENTES
+ * ==========================================================
+ *
+ * .hero {
+ *   padding: var(--section-padding-md) var(--container-padding);
+ *   max-width: var(--container-md);
+ * }
+ *
+ * .card {
+ *   background: var(--card);
+ *   border: 1px solid var(--border);
+ *   border-radius: var(--radius-2xl);
+ *   padding: var(--space-6);
+ *   box-shadow: var(--shadow-md);
+ * }
+ *
+ * .card h3 {
+ *   font-family: var(--font-display-name);
+ *   color: var(--foreground);
+ * }
+ *
+ * .card p {
+ *   color: var(--muted);
+ * }
+ *
+ * .btn-primary {
+ *   background: var(--primary);
+ *   color: var(--primary-foreground);
+ *   padding: var(--space-3) var(--space-6);
+ *   border-radius: var(--radius-full);
+ *   transition: background var(--transition-fast);
+ * }
+ */
