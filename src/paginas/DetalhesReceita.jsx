@@ -1,4 +1,7 @@
-function DetalhesReceita({ receita, aoVoltar}) {
+import { Routes, Route, Link } from 'react-router-dom'
+import Home from '../paginas/Home'
+
+function DetalhesReceita({ receita }) {
     return (
         <div className="card-detalhes">
             <div className="top">
@@ -50,7 +53,11 @@ function DetalhesReceita({ receita, aoVoltar}) {
             (<p key={index}>#{tag}</p>)
             )}
 
-            <button onClick={aoVoltar}>Voltar</button>
+            <button onClick={<Link to="/" />}>Voltar</button>
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+            </Routes>
         </div>
     )
 }

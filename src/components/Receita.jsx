@@ -1,6 +1,7 @@
+import { Routes, Route, Link } from 'react-router-dom'
+import DetalhesReceita from '../paginas/DetalhesReceita';
 
-
-function Receita({ receita, aoClicar }) {
+function Receita({ receita }) {
 
     return (
         <div className="card-receita">
@@ -12,7 +13,14 @@ function Receita({ receita, aoClicar }) {
                 <p>Nota: {receita.rating}</p>
             </div>
 
-            <button onClick={() => aoClicar(receita)}>Ver receita</button>
+            <div className='button'>
+                <Link to="/{receita.name}">Acessar receita</Link>
+            </div>
+
+
+            <Routes>
+                <Route path="/{receita.name}" element={<DetalhesReceita />} />
+            </Routes>
         </div>
 
     )
