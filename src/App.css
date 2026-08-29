@@ -166,11 +166,12 @@ a:hover {
     text-align: center;
 }
 
-.secao-informacoes h1 {
+.secao-informacoes h1, .card-detalhes-top h2 {
     font-family: var(--font-display-name);
     font-style: italic;
     font-size: var(--text-6xl);
     line-height: 1.1;
+    color: var(--foreground);
 }
 
 .secao-informacoes p {
@@ -181,6 +182,8 @@ a:hover {
 
 .banner {
     width: 100%;
+    height: 360px;
+    object-fit: cover;
 }
 
 .secao-receitas {
@@ -267,6 +270,98 @@ a:hover {
  * ==================================
 */
 
+.pagina-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 80px;
+    align-items: center;
+    margin: 0 20px;
+    font-family: var(--font-body-name);
+}
+
+.pagina-detalhes img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.card-detalhes-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 80px;
+}
+
+.card-detalhes-top p {
+    font-family: var(--font-mono-name);
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    padding: 6px 16px;
+    width: max-content;
+    background: var(--card);
+    border-radius: 2rem;
+    border: 1px solid var(--border);
+}
+
+.section-informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.cards-informacoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.card-informacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--card);
+    padding: 20px 40px;
+    width: 12rem;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+}
+
+.card-informacao span {
+    color: var(--primary);
+}
+
+.card-informacao p {
+    font-family: var(--font-mono-name);
+    font-size: var(--text-xs);
+    color: var(--muted);
+}
+
+.card-informacao h3 {
+    font-size: var(--text-3xl);
+    font-family: var(--font-display-name);
+    color: var(--foreground);
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--text-xl);
+    font-family: var(--font-display-name);
+}
+
+.avaliacao span {
+    color: var(--primary);
+    font-size: var(--text-4xl);
+}
 
 
 

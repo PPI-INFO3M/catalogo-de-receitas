@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import '../App.css'
 
 function DetalhesReceita() {
     const { id } = useParams();
@@ -15,15 +16,17 @@ function DetalhesReceita() {
             return <p>Carregando receita...</p>;
         }
     return (
-        <div className="card-detalhes">
+        <div className="pagina-detalhes">
             <section className="card-detalhes-top">
                 <p>DIFICULADADE {receita.difficulty}</p>
 
                 <h2>{receita.name}</h2>
 
-                <img src={receita.image} alt="" />
+                
             </section>            
             
+            <img src={receita.image} alt="" />
+
             <section className="section-informacoes">
                 <div className="cards-informacoes">
                     <div className="card-informacao">
