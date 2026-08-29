@@ -1,5 +1,93 @@
 :root {
+    /* =============
+     * === CORES === 
+     * =============
+     */
+
+    /* Fundo principal da página (cor de papel/canvas) */
     --background: oklch(0.98 0.01 85);
+
+    /* Cor do texto principal (títulos, parágrafos, links) */
+    --foreground: oklch(0.20 0.02 45);
+
+    /* Fundo de cartões, modais e popovers */
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.20 0.02 45);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.20 0.02 45);
+
+    /* Cor de destaque / ação primária (botões, links ativos, estrelas) */
+    --primary: oklch(0.55 0.13 45);
+
+    /* Cor do texto sobre elementos primários (geralmente branco) */
+    --primary-foreground: oklch(0.99 0.005 85);
+
+    /* Cor secundária: badges, tags, fundos sutis */
+    --secondary: oklch(0.96 0.02 85);
+    --secondary-foreground: oklch(0.25 0.02 45);
+
+    /* Cor "muted": legendas, descrições, metadados de receita */
+    --muted: oklch(0.50 0.02 50);
+    --muted-foreground: oklch(0.50 0.02 50);
+
+    /* Cor de acento / contraste (verde sálvia para receitas) */
+    --accent: oklch(0.55 0.06 150);
+    --accent-foreground: oklch(0.99 0.005 150);
+
+    /* Cor de erro / destrutivo */
+    --destructive: oklch(0.55 0.20 25);
+    --destructive-foreground: oklch(0.99 0.005 25);
+
+    /* Linhas divisórias, bordas de inputs, contornos de foco */
+    --border: oklch(0.20 0.02 45 / 0.08);
+    --input: oklch(0.20 0.02 45 / 0.15);
+    --ring: oklch(0.55 0.13 45);
+
+
+
+    /* ==================
+     * === TIPOGRAFIA === 
+     * ==================
+     */
+    /* Fonte de títulos e display (serifada, elegante) */
+    --font-display-name: "Playfair Display", Georgia, serif;
+
+    /* Fonte de corpo de texto (serifada, confortável de ler) */
+    --font-body-name: "Lora", Georgia, serif;
+
+    /* Fonte monoespaçada para labels, códigos e metadados */
+    --font-mono-name: "JetBrains Mono", ui-monospace, monospace;
+
+
+
+    /* =========================
+     * === TAMANHOS DE TEXTO === 
+     * =========================
+     */
+
+    --text-xs: 0.75rem;    /* 12px → labels, tags, footer */
+    --text-sm: 0.875rem;   /* 14px → legendas, metadados */
+    --text-base: 1rem;     /* 16px → corpo */
+    --text-lg: 1.125rem;   /* 18px → subtítulo */
+    --text-xl: 1.25rem;    /* 20px → título de card */
+    --text-2xl: 1.5rem;    /* 24px → título de seção */
+    --text-3xl: 1.875rem;  /* 30px → hero menor */
+    --text-4xl: 2.25rem;   /* 36px → hero médio */
+    --text-5xl: 3rem;      /* 48px → hero grande */
+    --text-6xl: 3.75rem;   /* 60px → hero extra */
+
+
+
+    /* ===============
+     * === SOMBRAS === 
+     * ===============
+     */    
+
+    --shadow-sm: 0 1px 2px 0 oklch(0.20 0.02 45 / 0.05);
+    --shadow-md: 0 4px 6px -1px oklch(0.20 0.02 45 / 0.08),
+    0 2px 4px -2px oklch(0.20 0.02 45 / 0.04);
+    --shadow-lg: 0 10px 15px -3px oklch(0.20 0.02 45 / 0.08),
+            0 4px 6px -4px oklch(0.20 0.02 45 / 0.04);
 }
 
 * {
@@ -11,7 +99,7 @@
 .App {
     display: flex;
     flex-direction: column;
-    background-color: var(--backgroud);
+    background-color: var(--background);
 }
 
 .Home {
@@ -21,8 +109,174 @@
     flex-wrap: wrap;
 }
 
+/* === CABEÇALHO === */
+
 .cabecalho {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
+  padding: 16px 64px;
+  border-bottom: 2px solid var(--border);
+}
+
+.logo {
+    font-family: var(--font-display-name);
+    font-style: italic;
+    color: var(--primary);
+    font-size: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--font-body-name);
+    font-size: 16px;
+    color: var(--foreground);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.5s ease;
+}
+
+a:hover {
+    color: var(--primary);
+    transform: translateY(-4px);
+}
+
+
+
+/* === HOME === */
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--background);
+    gap: 80px;
+}
+
+.secao-informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 28px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.secao-informacoes h1 {
+    font-family: var(--font-display-name);
+    font-style: italic;
+    font-size: var(--text-6xl);
+    line-height: 1.1;
+}
+
+.secao-informacoes p {
+    font-family: var(--font-body-name);
+    font-size: var(--text-xl);
+    color: var(--muted-foreground);
+}
+
+.banner {
+    width: 100%;
+}
+
+.secao-receitas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(620px, 1fr));
+    gap: 40px;
+    width: 100%;
+    padding: 12px;
+}
+
+.titulo-secao {
+    font-family: var(--font-display-name);
+    font-size: var(--text-5xl);
+    font-style: italic;
+    color: var(--foreground);
+}
+
+/* === CARD DA RECEITA === */
+
+.card-receita {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-body-name);
+    border: none;
+}
+
+
+
+.card-receita-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+}
+
+.card-receita-top h2 {
+    font-size: var(--text-4xl);
+}
+
+.card-receita-top img {
+    border-radius: 3rem;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-receita img:hover {
+    transform: translateY(-8px);
+}
+.card-receita-bottom {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin: 8px 0;
+}
+
+.card-receita-bottom p {
+    font-size: var(--text-lg);
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-receita-bottom p span {
+    font-size: var(--text-base);
+}
+
+.card-receita a {
+    text-decoration: none;
+}
+
+.texto-avaliacao {
+    color: var(--primary);
+}
+
+
+
+/* ==================================
+ * === PAGINA DETALHES DA RECEITA === 
+ * ==================================
+*/
+
+
+
+
+
+
+
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
 }

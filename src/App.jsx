@@ -11,14 +11,11 @@ function App() {
             <nav>
                 <Link to="/">Home</Link>
             </nav>
-            <p>Seu livro de receitas em um único lugar!</p>
-
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/:id" element={<DetalhesReceita />} />
-            </Routes>
-
         </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:id" element={<DetalhesReceita />} />
+        </Routes>
     </div>
   )
 }

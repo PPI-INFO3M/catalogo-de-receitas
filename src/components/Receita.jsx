@@ -1,19 +1,22 @@
 import { Link } from 'react-router-dom';
-import './Receita.css';
+import '../App.css'
 
 function Receita({ receita }) {
 
     return (
         <div className="card-receita">
-            <div className="card-top">
+            <div className="card-receita-top">
                 <img src={receita.image} alt="Foto da receita" />
-                <h2>{receita.name}</h2>
-                <p>Tempo de preparo: {(receita.prepTimeMinutes) + (receita.cookTimeMinutes)}</p>
-                <p>Dificulade: {receita.difficulty}</p>
-                <p>Nota: {receita.rating}</p>
+                <Link to={`/${receita.id}`}>
+                    <h2>{receita.name}</h2>
+                </Link>
+            </div>
+            <div className="card-receita-bottom">
+                <p><span className="material-symbols-outlined">timer</span> {(receita.prepTimeMinutes) + (receita.cookTimeMinutes)}</p>
+                <p><span className="material-symbols-outlined">speed</span> {receita.difficulty}</p>
+                <p className="texto-avaliacao"><span className="material-symbols-outlined">star</span> {receita.rating}</p>
             </div>
 
-            <Link className='button' to={`/${receita.id}`}>Acessar receita</Link>
         </div>
 
     )

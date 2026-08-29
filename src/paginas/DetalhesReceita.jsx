@@ -16,56 +16,76 @@ function DetalhesReceita() {
         }
     return (
         <div className="card-detalhes">
-            <div className="top">
-                <img src={receita.image} alt="" />
+            <section className="card-detalhes-top">
+                <p>DIFICULADADE {receita.difficulty}</p>
+
                 <h2>{receita.name}</h2>
-            </div>            
+
+                <img src={receita.image} alt="" />
+            </section>            
             
-            <div className="informacoes">
-                <div>
-                    <img src="" alt="" />
-                    <p>{receita.prepTimeMinutes + receita.cookTimeMinutes}</p>
+            <section className="section-informacoes">
+                <div className="cards-informacoes">
+                    <div className="card-informacao">
+                        <span className="material-symbols-outlined">timer</span>
+                        <p>PREPARO</p>
+                        <h3>{receita.prepTimeMinutes} min</h3>
+                    </div>
+                    <div className="card-informacao">
+                        <span className="material-symbols-outlined">soup_kitchen</span>
+                        <p>COZIMENTO</p>
+                        <h3>{receita.cookTimeMinutes} min</h3>
+                    </div>
+                    <div className="card-informacao">
+                        <span className="material-symbols-outlined">group</span>
+                        <p>PORÇÕES</p>
+                        <h3>{receita.servings}</h3>
+                    </div>
+                    <div className="card-informacao">
+                        <span className="material-symbols-outlined">local_fire_department</span>
+                        <p>CAL0RIAS</p>
+                        <h3>{receita.caloriesPerServing}</h3>
+                    </div>
                 </div>
-                <div>
-                    <img src="" alt="" />
-                    <p>{receita.difficulty}</p>
+                <div className="avaliacao">
+                    <span className="material-symbols-outlined">star</span>
+                    <h3>{receita.rating}</h3>
                 </div>
-                <div>
-                    <img src="" alt="" />
-                    <p>{receita.servings}</p>
-                </div>
-                <div>
-                    <img src="" alt="" />
-                    <p>{receita.reviewCount}</p>
-                </div>
-                <div>
-                    <img src="" alt="" />
-                    <p>{receita.rating}</p>
-                </div>
-            </div>
 
-            <div className="ingredientes">
-                <h3>Ingredientes</h3>
-                <ul>
-                    {receita.ingredients.map((ingrediente, index) =>
-                    (<li key={index}>{ingrediente}</li>)
+            </section>
+
+            <section className="section-preparacao">
+                <div className="container-ingredientes">
+                    <h3>Ingredientes</h3>
+                    <hr />
+
+                    <ul>
+                        {receita.ingredients.map((ingrediente, index) =>
+                        (<li key={index}>{ingrediente}</li>)
+                        )}
+                    </ul>
+                </div>
+
+                <div className="container-instrucoes">
+                    <h3>Intruções</h3>
+                    <hr />
+
+                    <ol>
+                        {receita.instructions.map((instrucao, index) =>
+                        (<li key={index}>{instrucao}</li>)
                     )}
-                </ul>
-            </div>
+                    </ol>
+                </div>
+            </section>
 
-            <div className="instrucoes">
-                <h3>Instruções</h3>
-                <ol>
-                    {receita.instructions.map((instrucoes, index) =>
-                    (<li key={index}>{instrucoes}</li>)
-                    )}
-                </ol>
-            </div>
-            {receita.tags.map((tag, index) =>
-            (<p key={index}>#{tag}</p>)
-            )}
+            <section className="section-bottom-detalhe">
+                {receita.tags.map((tag, index) => 
+                (<p key={index}>{tag}</p>)
+                )}
 
-            <Link className='button' to="/">Voltar</Link>
+                <Link className='button' to="/">Voltar</Link>
+
+            </section>
         </div>
     )
 }
