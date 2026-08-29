@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
-import Receita from './components/Receita'
-import Cabecalho from './components/Cabecalho'
+import Home from './paginas/Home'
 import DetalhesReceita from './paginas/DetalhesReceita'
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
-
-    useEffect(() => {
-      fetch('https://dummyjson.com/recipes')
-      .then((resposta) => resposta.json())
-      .then((dados) => {setRecipes(dados.recipes)})
-    }, []);
-
   return (
     <div className="App">
+      <header className="cabecalho">
+            <h1 className='logo'>Sabor & Afetyo</h1>
+            <nav>
+                <Link to="/">Home</Link>
+            </nav>
+            <p>Seu livro de receitas em um único lugar!</p>
 
-      <Cabecalho />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/:id" element={<DetalhesReceita />} />
+            </Routes>
 
-      {(recipes.length === 0) && <p>Carregando receitas...</p>}
+        </header>
     </div>
   )
 }

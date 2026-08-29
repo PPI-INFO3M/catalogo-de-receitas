@@ -1,5 +1,5 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import DetalhesReceita from '../paginas/DetalhesReceita';
+import { Link } from 'react-router-dom';
+import './Receita.css';
 
 function Receita({ receita }) {
 
@@ -13,14 +13,7 @@ function Receita({ receita }) {
                 <p>Nota: {receita.rating}</p>
             </div>
 
-            <div className='button'>
-                <Link to="/{receita.name}">Acessar receita</Link>
-            </div>
-
-
-            <Routes>
-                <Route path="/{receita.name}" element={<DetalhesReceita />} />
-            </Routes>
+            <Link className='button' to={`/${receita.id}`}>Acessar receita</Link>
         </div>
 
     )

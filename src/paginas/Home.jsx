@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Receita from '../components/Receita'
+import '../App.css'
 
 
 function Home() {

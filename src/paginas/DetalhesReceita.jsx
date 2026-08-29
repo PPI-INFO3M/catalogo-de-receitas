@@ -1,7 +1,19 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import Home from '../paginas/Home'
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-function DetalhesReceita({ receita }) {
+function DetalhesReceita() {
+    const { id } = useParams();
+    const [receita, setReceita] = useState(null);
+
+    useEffect(() => {
+        fetch(`https://dummyjson.com/recipes/${id}`)
+        .then((resposta) => resposta.json())
+        .then((dados) => {setReceita(dados)})
+    }, []);
+    if (!receita) {
+            return <p>Carregando receita...</p>;
+        }
     return (
         <div className="card-detalhes">
             <div className="top">
@@ -53,11 +65,7 @@ function DetalhesReceita({ receita }) {
             (<p key={index}>#{tag}</p>)
             )}
 
-            <button onClick={<Link to="/" />}>Voltar</button>
-
-            <Routes>
-                <Route path="/" element={<Home />} />
-            </Routes>
+            <Link className='button' to="/">Voltar</Link>
         </div>
     )
 }
