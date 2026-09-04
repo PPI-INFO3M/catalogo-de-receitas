@@ -59,8 +59,10 @@ function DetalhesReceita() {
 
             <section className="section-preparacao">
                 <div className="container-ingredientes">
-                    <h3>Ingredientes</h3>
-                    <hr />
+                    <div className="container-titulo">
+                        <h3>Ingredientes</h3>
+                        <hr />
+                    </div>
 
                     <ul>
                         {receita.ingredients.map((ingrediente, index) =>
@@ -70,8 +72,10 @@ function DetalhesReceita() {
                 </div>
 
                 <div className="container-instrucoes">
-                    <h3>Intruções</h3>
-                    <hr />
+                    <div className="container-titulo">
+                        <h3>Intruções</h3>
+                        <hr />
+                    </div>
 
                     <ol>
                         {receita.instructions.map((instrucao, index) =>
@@ -82,11 +86,16 @@ function DetalhesReceita() {
             </section>
 
             <section className="section-bottom-detalhe">
-                {receita.tags.map((tag, index) => 
-                (<p key={index}>{tag}</p>)
-                )}
+                <div className="container-tags">
+                    {receita.tags.map((tag, index) =>
+                    (<p key={index}>{tag}</p>)
+                    )}
+                </div>
 
-                <Link className='button' to="/">Voltar</Link>
+                <Link className='button' to="/">
+                <span className="material-symbols-outlined">arrow_back</span>
+                Voltar
+                </Link>
 
             </section>
         </div>

@@ -364,6 +364,133 @@ a:hover {
 }
 
 
+.section-preparacao {
+    display: flex; 
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 200px;
+    justify-content: center;
+}
+
+.container-ingredientes, .container-instrucoes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.container-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: var(--text-3xl);
+}
+
+.container-titulo hr {
+    width: 50%;
+    border: 2px solid var(--border);
+}
+
+.container-ingredientes li {
+    font-size: var(--text-xl);
+    color: var(--muted-foreground);
+}
+
+.container-ingredientes ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 20px;
+}
+
+li::marker {
+    color: var(--primary);
+}
+
+.container-instrucoes ol {
+    list-style: none;
+    counter-reset: passo;
+    position: relative;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container-instrucoes li {
+    counter-increment: passo;
+    position: relative;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    color: var(--muted-foreground);
+    font-size: var(--text-xl);
+}
+
+.container-instrucoes li::before {
+    content: counter(passo, decimal-leading-zero);
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+    color: var(--primary);
+    background-color: var(--background);
+    font-family: var(--font-mono-name);
+}
+
+.section-bottom-detalhe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.section-bottom-detalhe .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-lg);
+    text-transform: uppercase;
+    font-family: var(--font-mono-name);
+    padding: 16px 32px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: 2rem;
+}
+
+.container-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-tags p {
+    text-transform: uppercase;
+    font-family: var(--font-mono-name);
+    color: var(--muted-foreground);
+    font-size: var(--text-base);
+    padding: 12px 24px;
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 2rem;
+}
+
+.section-bottom-detalhe .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+}
 
 
 
